@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import ProductPage from '../product';
 import './index.scss';
 
 
@@ -26,23 +25,19 @@ const MainPage = () => {
                 <div id="product-list" className='inner'>
                     <h2>판매중인 상품들</h2>
                     <div id="produce-items">
+                        <div className='product-card'>
+                            <div className='product-img'>
                         
-                                {products.map(product => (
-                                    <div className='product-card'>
-                                    <div className='product-img'> 
-                                    <img src={product.imgsrc} alt=""/>
-                                    </div>
-                                   <div className='product-contents'>
-                                   <span className='product-name'>{product.name}</span>
-                                   <span className='produce-price'>{product.price}</span>
-                                   <div className='product-seller'>
-                                       <img src="images/icons/avatar.png" alt=""/>{product.seller}
-                                   </div>
-                               </div>  
-                               </div>
-                                )) }
-                           
-                       
+                                <img src="images/products/product1.jpg" alt=""/>
+                            </div>
+                            <div className='product-contents'>
+                                <span className='product-name'>제품명</span>
+                                <span className='produce-price'>가격</span>
+                                <div className='product-seller'>
+                                    <img src="images/icons/avatar.png" alt=""/>해위
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div >

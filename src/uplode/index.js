@@ -2,6 +2,7 @@ import { Button, Divider, Form, Input, InputNumber } from 'antd';
 import React from 'react';
 import './upload.scss'
 import 'antd/dist/antd.css'
+// 안해주면 스타일적용이안됌. antd
 
 const UploadPage = () => {
     return (
