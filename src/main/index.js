@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import ProductPage from '../product';
 import './index.scss';
+import MainProduct from './MainProduct';
 
 
 const MainPage = () => {
@@ -9,38 +9,25 @@ const MainPage = () => {
     useEffect(()=> {
         axios.get("http://localhost:3000/products")
         .then((result)=>{
-            const products = result.data.products
+            const products = result.data;
             setProducts(products);
-            console.log(products);
         }).catch((e)=>{
             console.log(e)
         })
     },[])
+    if(products===[]) return <div>로딩중입니다...</div>
     return (
         <div>
            
             <div id="main">
                 <div id="banner">
-                    <img src="images/banners/banner1.png" alt="메인베너사진"/>
+                    <img src="/images/banners/banner1.png" alt="메인베너사진"/>
                 </div>
                 <div id="product-list" className='inner'>
                     <h2>판매중인 상품들</h2>
                     <div id="produce-items">
                         
-                                {products.map(product => (
-                                    <div className='product-card'>
-                                    <div className='product-img'> 
-                                    <img src={product.imgsrc} alt=""/>
-                                    </div>
-                                   <div className='product-contents'>
-                                   <span className='product-name'>{product.name}</span>
-                                   <span className='produce-price'>{product.price}</span>
-                                   <div className='product-seller'>
-                                       <img src="images/icons/avatar.png" alt=""/>{product.seller}
-                                   </div>
-                               </div>  
-                               </div>
-                                )) }
+                    {products.map(product => <MainProduct key={product.id} product={product} />)}
                            
                        
                     </div>
